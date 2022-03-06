@@ -15,5 +15,6 @@ $tab_passager = $rep->fetchAll();
     $key->afficher();
 }*/
 
-Trajet::findPassagers(6);
+
+Trajet::findPassagers("$_GET[id]");
 
