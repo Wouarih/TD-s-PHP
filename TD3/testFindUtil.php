@@ -2,6 +2,18 @@
 
 require_once 'Model.php';
 require_once 'Trajet.php';
+require_once 'Utilisateur.php';
 
 
-Trajet::findPassager(6);
+$rep = Model::getPDO()->query("SELECT * FROM utilisateur");
+
+$rep->setFetchMode(PDO::FETCH_CLASS, 'Utilisateur');
+
+$tab_passager = $rep->fetchAll();
+
+/*foreach($tab_passager as $key) {
+    $key->afficher();
+}*/
+
+Trajet::findPassagers(6);
+

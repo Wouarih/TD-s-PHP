@@ -61,8 +61,8 @@ class Trajet {
         }
     }
 
-    public static function findPassager($id){
-        $sql = "SELECT login, nom, prenom FROM utilisateur INNER JOIN passager ON utilisateur.login = passager.utilisateur_login INNER JOIN trajet ON passager.trajet_id = trajet.id WHERE trajet.id=:num_id";
+    public static function findPassagers($id){
+        $sql = "SELECT login, nom, prenom FROM utilisateur INNER JOIN passager ON utilisateur.login = passager.utilisateur_login WHERE passager.trajet_id=:num_id";
 
         //préparation de la requête
         $req_prep = Model::getPDO()->prepare($sql);
@@ -79,9 +79,12 @@ class Trajet {
 
         $req_prep->setFetchMode(PDO::FETCH_CLASS, 'Utilisateur');
         $tab_passager = $req_prep->fetchAll();
-        if (empty($tab_passager))
-            return false;
-        return $tab_passager[0];
-    }
+        foreach($tab_passager as $key){
+            $key -> afficher();
+        }
+            if (empty($tab_passager))
+                return false;
+            return $tab_passager;
+        }
 
 }

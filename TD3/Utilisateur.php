@@ -34,7 +34,7 @@ class Utilisateur {
 
     // une methode d'affichage.
     public function afficher() {
-        echo "Utilisateur {$this->prenom} {$this->nom} de login {$this->login}";
+        echo nl2br("Utilisateur {$this->prenom} {$this->nom} de login {$this->login} \n");
     }
 
     public static function getAllUtilisateurs() {

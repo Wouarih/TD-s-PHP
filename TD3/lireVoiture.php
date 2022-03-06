@@ -18,7 +18,7 @@ foreach($tab_voit as $key){
         $key->afficher();
 }
 
-$car = new Voiture("CASOUALE", "Citroen", "Noir");
+//$car = new Voiture("CASOUALE", "Citroen", "Noir");
 
 //Voiture::getVoitureByImmat("0A100E2S");
 
