@@ -1,5 +1,9 @@
 <?php
-   
+
+//Requestionnez le prof sur le try and catch
+
+require_once "Model.php";
+
 class Voiture {
    
     private $marque;
@@ -29,15 +33,15 @@ class Voiture {
     }
 
       public function setImmatriculation($i){
-    	$this->couleur = $i;
+    	$this->immatriculation = $i;
     }
 
    
     // un constructeur
-    public function __construct($i = NULL, $m = NULL, $c = NULL) {
-        if(!is_null($m) && !is_null($c) && !is_null($i)) {
-            $this->immatriculation = $i;
+    public function __construct($m = NULL, $i = NULL, $c = NULL) {
+        if(!is_null($m) && !is_null($i) && !is_null($c)) {
             $this->marque = $m;
+            $this->immatriculation = $i;
             $this->couleur = $c;
         }
     } 
@@ -69,13 +73,13 @@ class Voiture {
     }
 
     public function save(){
-    $sql = "INSERT INTO voiture VALUES(:nom_im, :nom_mq, :nomc)";
+    $sql = "INSERT INTO voiture VALUES(:nom_im, :nom_mq, :nom_c)";
     $req_prep = Model::getPDO()->prepare($sql);
 
     $values = array(
         ":nom_im" => $this->immatriculation,
         ":nom_mq" => $this->marque,
-        "nomc" => $this->couleur,
+        ":nom_c" => $this->couleur,
     );
 
     $req_prep->execute($values);

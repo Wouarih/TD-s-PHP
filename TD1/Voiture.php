@@ -29,7 +29,7 @@ class Voiture {
     }
 
       public function setImmatriculation($i){
-    	$this->couleur = $i;
+    	$this->immatriculation = $i;
     }
 
    
