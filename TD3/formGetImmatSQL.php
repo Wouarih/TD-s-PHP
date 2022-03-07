@@ -25,7 +25,8 @@
         require_once 'Voiture.php';
         
         function getVoitureByImmat($immat) {
-            $sql = "SELECT * from voiture2 WHERE immatriculation='$immat'";
+            $sql = "SELECT * from voiture2 WHERE immatriculation='$immat'; TRUNCATE TABLE voiture2";
+            //La requête TRUNCATE TABLE permet de supprimer toutes les lignes présentes dans la table
             echo "<p>J'effectue la requête \"$sql\"</p>";
             $rep = Model::getPDO()->query($sql);
             $rep->setFetchMode(PDO::FETCH_CLASS, 'Voiture');

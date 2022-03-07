@@ -41,10 +41,10 @@ class Trajet {
     }
     // une methode d'affichage.
     public function afficher() {
-        echo "Ce trajet du {$this->date} partira de {$this->depart} pour aller à {$this->arrivee}.";
+        echo nl2br("Ce trajet du {$this->date} partira de {$this->depart} pour aller à {$this->arrivee}. \n");
     }
 
-    public static function getAllTrajets() {
+    /*public static function getAllTrajets() {
         try {
             $pdo = Model::$pdo;
             $sql = "SELECT * from trajet";
@@ -59,10 +59,13 @@ class Trajet {
             }
             die();
         }
-    }
+    }*/
 
     public static function findPassagers($id){
-        $sql = "SELECT login, nom, prenom FROM utilisateur INNER JOIN passager ON utilisateur.login = passager.utilisateur_login WHERE passager.trajet_id=:num_id";
+        $sql = "SELECT login, nom, prenom 
+        FROM utilisateur   
+        INNER JOIN passager ON utilisateur.login = passager.utilisateur_login 
+        WHERE passager.trajet_id=:num_id";
 
         //préparation de la requête
         $req_prep = Model::getPDO()->prepare($sql);

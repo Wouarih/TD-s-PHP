@@ -37,7 +37,7 @@ class Utilisateur {
         echo nl2br("Utilisateur {$this->prenom} {$this->nom} de login {$this->login} \n");
     }
 
-    public static function getAllUtilisateurs() {
+    /*public static function getAllUtilisateurs() {
         try {
             $pdo = Model::$pdo;
             $sql = "SELECT * from utilisateur";
@@ -52,5 +52,27 @@ class Utilisateur {
             }
             die();
         }
+    }*/
+
+    public static function findTrajets($login){
+        $sql ="SELECT date, depart, arrivee
+                FROM trajet
+                INNER JOIN passager ON passager.trajet_id = trajet.id
+                WHERE passager.utilisateur_login = :login";
+
+        $req_prep = Model::getPDO()->prepare($sql);
+        $values = array(
+            "login" => $login,
+        );
+        $req_prep->execute($values);
+
+        $req_prep->setFetchMode(PDO::FETCH_CLASS, 'Trajet');
+        $tab_trajet = $req_prep->fetchAll();
+        foreach($tab_trajet as $key){
+            $key -> afficher();
+        }
+        if (empty($tab_trajet))
+            return false;
+        return $tab_trajet;
     }
 }
