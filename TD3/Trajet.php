@@ -92,6 +92,7 @@ class Trajet {
 
         public static function deletePassager($data){
 
+
             $sql = "DELETE FROM passager WHERE trajet_id =:data_trajet AND utilisateur_login=:data_login";
 
             $req_prep = Model::getPDO()->prepare($sql);
@@ -102,8 +103,12 @@ class Trajet {
             );
 
             $req_prep->execute($values);
-            $req_prep - setFetchMode(PDO::FETCH_CLASS, 'Trajet');
+            $req_prep->setFetchMode(PDO::FETCH_CLASS, 'Utilisateur');
             $tab_delete = $req_prep->fetchAll();
+
+            if (empty($tab_delete))
+                return false;
+            return $tab_delete;
 
         }
 }

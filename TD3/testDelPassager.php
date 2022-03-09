@@ -10,4 +10,7 @@ $rep = Model::getPDO()->query("SELECT * FROM utilisateur");
 
 $rep->setFetchMode(PDO::FETCH_CLASS, 'Utilisateur');
 
-Trajet::deletePassager(4);
+
+var_dump(Utilisateur::findTrajets('testpassager'));
+Trajet::deletePassager("testpassager");
+var_dump(Utilisateur::findTrajets('testpassager'));
