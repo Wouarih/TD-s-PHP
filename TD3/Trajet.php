@@ -92,20 +92,17 @@ class Trajet {
 
         public static function deletePassager($data){
 
-            $data[] = "trajet_id";
-            $data[] = "utilisateur_login";
-
 
             $sql = "DELETE FROM passager WHERE trajet_id =:data_trajet AND utilisateur_login=:data_login";
 
             $req_prep = Model::getPDO()->prepare($sql);
 
-            $data= array(
-                "data_trajet"=> $data['trajet_id'],
-                "data_login"=> $data['utilisateur_login']
+            $values= array(
+                "data_trajet"=> $data["trajet_id"],
+                "data_login"=> $data["utilisateur_login"]
             );
 
-            $req_prep->execute($data);
+            $req_prep->execute($values);
 
         }
 }
