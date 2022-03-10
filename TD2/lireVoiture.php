@@ -3,12 +3,12 @@
 require_once 'Model.php';
 require_once 'Voiture.php';
 
-$rep = Model::getPDO()->query("SELECT * FROM Voiture");
+$rep = Model::getPDO()->query("SELECT * FROM ModelVoiture");
 
 
 /*$tab_obj = $rep->fetchAll(PDO::FETCH_OBJ);*/
 
-$rep->setFetchMode(PDO::FETCH_CLASS, 'Voiture');
+$rep->setFetchMode(PDO::FETCH_CLASS, 'ModelVoiture');
 
 $tab_voit = $rep->fetchAll();
 

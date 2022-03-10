@@ -17,7 +17,7 @@
 
 
 
-        $voiture1 = new Voiture("Fiat","beige","NAZ8AZ");
+        $voiture1 = new ModelVoiture("Fiat","beige","NAZ8AZ");
 
         $voiture1->afficher();
 

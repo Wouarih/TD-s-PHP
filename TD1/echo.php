@@ -46,10 +46,10 @@
 
           //print_r($voiture);
 
-          echo "<p>Voiture $immatriculation de marque $marque (couleur $couleur)</p>";
+          echo "<p>ModelVoiture $immatriculation de marque $marque (couleur $couleur)</p>";
 
 
-          echo "<p>Voiture {$voiture["immatriculation"]} de marque {$voiture["marque"]} (couleur {$voiture["couleur"]})</p>";
+          echo "<p>ModelVoiture {$voiture["immatriculation"]} de marque {$voiture["marque"]} (couleur {$voiture["couleur"]})</p>";
 
             ?>
 

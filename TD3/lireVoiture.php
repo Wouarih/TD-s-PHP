@@ -3,14 +3,14 @@
 //-> appel fonction / :: appel fonction static
 
 require_once 'Model.php';
-require_once 'Voiture.php';
+require_once 'ModelVoiture.php';
 
 $rep = Model::getPDO()->query("SELECT * FROM voiture");
 
 
 /*$tab_obj = $rep->fetchAll(PDO::FETCH_OBJ);*/
 
-$rep->setFetchMode(PDO::FETCH_CLASS, 'Voiture');
+$rep->setFetchMode(PDO::FETCH_CLASS, 'ModelVoiture');
 
 $tab_voit = $rep->fetchAll();
 
@@ -18,9 +18,9 @@ foreach($tab_voit as $key){
         $key->afficher();
 }
 
-//$car = new Voiture("CASOUALE", "Citroen", "Noir");
+//$car = new ModelVoiture("CASOUALE", "Citroen", "Noir");
 
-//Voiture::getVoitureByImmat("0A100E2S");
+//ModelVoiture::getVoitureByImmat("0A100E2S");
 
 //$car->save();
 

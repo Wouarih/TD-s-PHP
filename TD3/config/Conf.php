@@ -3,21 +3,21 @@ class Conf {
 
     static private $databases = array(
         // Le nom d'hote est webinfo a l'IUT
-        //'hostname' => 'webinfo',
+        'hostname' => 'webinfo',
         // ou localhost sur votre machine
-        'hostname' => 'localhost',
+        //'hostname' => 'localhost',
         // A l'IUT, vous avez une BDD nommee comme votre login
-        //'database' => 'oiryc',
+        'database' => 'oiryc',
         // Sur votre machine, vous devrez creer une BDD
-        'database' => 'tdphp',
+        //'database' => 'tdphp',
         // A l'IUT, c'est votre login
-        //'login' => 'oiryc',
+        'login' => 'oiryc',
         // Sur votre machine, vous avez surement un compte 'root'
-        'login' => 'root',
+        //'login' => 'root',
         // A l'IUT, c'est votre mdp (INE par defaut)
-        //'password' => 'iutmontpellier'
+        'password' => 'iutmontpellier'
         // Sur votre machine personelle, vous avez creez ce mdp a l'installation
-        'password' => 'root'
+        //'password' => 'root'
     );
 
     static public function getLogin() {
