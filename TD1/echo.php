@@ -14,12 +14,12 @@
            
           // On met la chaine de caractères "hello" dans la variable 'texte'
           // Les noms de variable commencent par $ en PHP
-          $texte = "hello world !";
+          //$texte = "hello world !";
 
           // On écrit le contenu de la variable 'texte' dans la page Web
-          echo $texte;
+          //echo $texte;
 
-          //Exercice 2
+          /*Exercice 2
 
           $prenom = "Marc";
 
@@ -31,7 +31,7 @@
           echo "\n";
           echo $prenom;
           echo "\n";
-          echo "$prenom";
+          echo "$prenom";*/
 
           //Exercice 3
           $immatriculation ="35EB3773";
@@ -46,10 +46,13 @@
 
           //print_r($voiture);
 
-          echo "<p>ModelVoiture $immatriculation de marque $marque (couleur $couleur)</p>";
+          //echo "<p>Voiture $immatriculation de marque $marque (couleur $couleur)</p>";
 
+          foreach($voiture as $key => $value){
+              echo "$key : $value \n";
+          }
 
-          echo "<p>ModelVoiture {$voiture["immatriculation"]} de marque {$voiture["marque"]} (couleur {$voiture["couleur"]})</p>";
+          //echo "<p>Voiture {$voiture["immatriculation"]} de marque {$voiture["marque"]} (couleur {$voiture["couleur"]})</p>";
 
             ?>
 

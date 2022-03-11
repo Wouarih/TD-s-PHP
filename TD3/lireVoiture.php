@@ -2,20 +2,22 @@
 
 //-> appel fonction / :: appel fonction static
 
-require_once 'Model.php';
-require_once 'ModelVoiture.php';
+require_once '../model/Model.php';
+require_once 'TD3/model/ModelVoiture.php';
 
 $rep = Model::getPDO()->query("SELECT * FROM voiture");
 
 
 /*$tab_obj = $rep->fetchAll(PDO::FETCH_OBJ);*/
 
-$rep->setFetchMode(PDO::FETCH_CLASS, 'ModelVoiture');
+//$rep->setFetchMode(PDO::FETCH_CLASS, 'ModelVoiture');
 
-$tab_voit = $rep->fetchAll();
+//$tab_voit = $rep->fetchAll();
 
-foreach($tab_voit as $key){
-        $key->afficher();
+$tab = ModelVoiture::getAllVoitures();
+
+foreach($tab as $key => $value){
+    echo "<p>$key : $value</p>";
 }
 
 //$car = new ModelVoiture("CASOUALE", "Citroen", "Noir");

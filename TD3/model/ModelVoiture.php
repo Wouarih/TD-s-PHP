@@ -52,6 +52,20 @@ class ModelVoiture {
       echo "<p>La $this->marque immatriculé $this->immatriculation est de couleur $this->couleur</p>";
     }*/
 
+    public static function getAllVoitures(){
+
+        $rep = Model::getPDO()->query("SELECT * FROM voiture");
+
+        $rep->setFetchMode(PDO::FETCH_CLASS, 'ModelVoiture');
+
+        $tab_voit = $rep->fetchAll();
+
+        return $tab_voit;
+
+
+
+    }
+
     public static function getVoitureByImmat($immat) {
         $sql = "SELECT * from voiture WHERE immatriculation=:nom_tag";
         // Préparation de la requête
