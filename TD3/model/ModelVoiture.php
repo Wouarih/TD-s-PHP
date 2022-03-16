@@ -62,9 +62,25 @@ class ModelVoiture {
 
         return $tab_voit;
 
-
-
     }
+
+    /*public static function getAllVoitures()
+    {
+        $sql ="SELECT * FROM voiture";
+
+        $req_prep = Model::getPDO()->prepare($sql);
+
+
+        $req_prep->execute();
+
+        $req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelVoiture');
+        $tab_v = $req_prep->fetchAll();
+
+        foreach($tab_v as $key => $item){
+            echo "$key : $item";
+        }
+
+    }*/
 
     public static function getVoitureByImmat($immat) {
         $sql = "SELECT * from voiture WHERE immatriculation=:nom_tag";

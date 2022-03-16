@@ -8,7 +8,7 @@ require_once 'TD3/model/ModelVoiture.php';
 $rep = Model::getPDO()->query("SELECT * FROM voiture");
 
 
-/*$tab_obj = $rep->fetchAll(PDO::FETCH_OBJ);*/
+//$tab_obj = $rep->fetchAll(PDO::FETCH_OBJ);
 
 //$rep->setFetchMode(PDO::FETCH_CLASS, 'ModelVoiture');
 

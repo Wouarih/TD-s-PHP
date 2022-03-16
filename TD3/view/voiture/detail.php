@@ -7,7 +7,7 @@
 <body>
 <?php
 
-    echo '<p> La voiture ' . $v->getMarque() . 'i mmatriculé '. $v->getImmatriculation() . ' est de couleur '. $v->getCouleur() .'.</p>';
+    echo '<p> La voiture ' . $v->getMarque() . ' immatriculé '. $v->getImmatriculation() . ' est de couleur '. $v->getCouleur() .'.</p>';
 
 ?>
 
